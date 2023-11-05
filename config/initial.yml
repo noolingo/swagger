@@ -1,0 +1,22 @@
+app:
+  filesPath:
+  environment: local
+  url: "127.0.0.1:8088"
+
+listen:
+  host: 0.0.0.0
+  ports:
+    http: 8080
+sentry:
+  dsn: 
+  debug: true
+  environment: local
+  release: initial-release
+log:
+  modules:
+    app: info
+  pretty: false
+  disabletimestamp: false
+  timeformat: ""
+  disablehtmlescape: false
+  reportcaller: true

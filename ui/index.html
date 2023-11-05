@@ -1,0 +1,103 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Swagger UI</title>
+  <style>
+    html
+    {
+      box-sizing: border-box;
+      overflow: -moz-scrollbars-vertical;
+      overflow-y: scroll;
+    }
+
+    *,
+    *:before,
+    *:after
+    {
+      box-sizing: inherit;
+    }
+
+    body
+    {
+      margin:0;
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+<div id="swagger-ui"></div>
+    <script src="https://browser.sentry-cdn.com/5.11.1/bundle.min.js"
+        integrity="sha384-r7/ZcDRYpWjCNXLUKk3iuyyyEcDJ+o+3M5CqXP5GUGODYbolXewNHAZLYSJ3ZHcV"
+        crossorigin="anonymous">
+    </script>
+    <script>
+        function loadScript(url) {
+            const elem = document.createElement('script');
+            elem.src = url;
+            document.body.appendChild(elem);
+
+            return new Promise((resolve) => {
+                elem.onload = () => resolve();
+            });
+        }
+
+        function loadStyle(url) {
+            const elem = document.createElement('link');
+            elem.rel = 'stylesheet';
+            elem.type = 'text/css';
+            elem.href = url;
+            document.head.appendChild(elem);
+
+            return new Promise((resolve) => {
+                elem.onload = () => resolve();
+            });
+        }
+
+        function loadIcon(url, size) {
+            const elem = document.createElement('link');
+            elem.rel = 'icon';
+            elem.type = 'image/png';
+            elem.sizes = size;
+            elem.href = `${url}-${size}.png`;
+            document.head.appendChild(elem);
+
+            return Promise.resolve();
+        }
+
+        window.onload = function () {
+            const path = window.location
+                .pathname
+                .replace(/(.*)(\/)/, '$1');
+
+            Promise.all([
+                loadStyle(`${path}/swagger-ui.css`),
+                loadIcon(`${path}/favicon`, '32x32'),
+                loadIcon(`${path}/favicon`, '16x16'),
+                loadScript(`${path}/swagger-ui-bundle.js`),
+                loadScript(`${path}/swagger-ui-standalone-preset.js`),
+                // loadScript(`${path}/sentry.js`),
+            ])
+            .then(() => {
+                const ui = SwaggerUIBundle({
+                    url: `${path}/swagger.json`,
+                    dom_id: '#swagger-ui',
+                    deepLinking: true,
+                    presets: [
+                        SwaggerUIBundle.presets.apis,
+                        SwaggerUIStandalonePreset
+                    ],
+                    plugins: [
+                        SwaggerUIBundle.plugins.DownloadUrl
+                    ],
+                    layout: 'StandaloneLayout',
+                })
+                // End Swagger UI call region
+
+                window.ui = ui
+            })
+        }
+    </script>
+</body>
+</html>

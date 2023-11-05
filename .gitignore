@@ -1,0 +1,7 @@
+config/config.yml
+swagger-bin
+
+/.vscode
+/dist
+/bin
+/out
