@@ -5,3 +5,4 @@ swagger-bin
 /dist
 /bin
 /out
+wget-log

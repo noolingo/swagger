@@ -10,7 +10,7 @@ require (
 
 require (
 	github.com/BurntSushi/toml v1.2.1 // indirect
-	github.com/MelnikovNA/noolingoproto v0.0.0-20231105150806-05da0149cf41 // indirect
+	github.com/MelnikovNA/noolingoproto v0.0.0-20240203091227-a775bee0d28d // indirect
 	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
 	golang.org/x/sys v0.0.0-20220715151400-c0bba94af5f8 // indirect

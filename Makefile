@@ -4,11 +4,11 @@ GO_SWAGGER_VER := 0.25.0
 PROTO				:= $(shell go get github.com/MelnikovNA/noolingoproto)
 PROTO_VER           := $(shell go list -m -f '{{ .Version }}' github.com/MelnikovNA/noolingoproto;)
 
+GOPATH ?= $(shell go env GOPATH)
+
 SWAGGER_PATH        := $(GOPATH)/pkg/mod/github.com/!melnikov!n!a/noolingoproto@$(PROTO_VER)/codegen/swagger
 INFO_PATH           := ${SWAGGER_PATH}/common/info.swagger.json
 COMMON_PATH         := $(SWAGGER_PATH)/common/common.swagger.json
-#USER_PATH           := $(SWAGGER_PATH)/xprts/user.swagger.json
-#OFFERFEED_PATH      := $(SWAGGER_PATH)/xprts/offer-feed.swagger.json
 
 
 all:
