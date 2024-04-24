@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/MelnikovNA/noolingoswagger/internal/domain"
+	"github.com/noolingo/swagger/internal/domain"
 	"github.com/ilyakaznacheev/cleanenv"
 	"gopkg.in/yaml.v3"
 )

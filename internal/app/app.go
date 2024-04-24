@@ -1,8 +1,8 @@
 package app
 
 import (
-	"github.com/MelnikovNA/noolingoswagger/internal/domain"
-	"github.com/MelnikovNA/noolingoswagger/internal/service"
+	"github.com/noolingo/swagger/internal/domain"
+	"github.com/noolingo/swagger/internal/service"
 	"github.com/ilyakaznacheev/cleanenv"
 	"github.com/sirupsen/logrus"
 )

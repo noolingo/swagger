@@ -1,4 +1,4 @@
-module github.com/MelnikovNA/noolingoswagger
+module github.com/noolingo/swagger
 
 go 1.21.3
 
@@ -9,11 +9,11 @@ require (
 )
 
 require (
-	github.com/BurntSushi/toml v1.2.1 // indirect
-	github.com/MelnikovNA/noolingoproto v0.0.0-20240203091227-a775bee0d28d // indirect
+	github.com/BurntSushi/toml v1.3.2 // indirect
 	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
-	golang.org/x/sys v0.0.0-20220715151400-c0bba94af5f8 // indirect
+	github.com/kr/text v0.2.0 // indirect
+	golang.org/x/sys v0.19.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 	olympos.io/encoding/edn v0.0.0-20201019073823-d3554ca0b0a3 // indirect
 )

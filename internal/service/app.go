@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	cfg "github.com/MelnikovNA/noolingoswagger/internal/domain"
+	cfg "github.com/noolingo/swagger/internal/domain"
 	"github.com/sirupsen/logrus"
 )
 

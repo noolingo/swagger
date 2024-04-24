@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/MelnikovNA/noolingoswagger/internal/app"
+	"github.com/noolingo/swagger/internal/app"
 	"github.com/sirupsen/logrus"
 )
 
