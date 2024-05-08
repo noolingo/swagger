@@ -7,7 +7,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-const configPath = "./config/config.yml"
+const configPath = "./configs/config.yml"
 
 func main() {
 	err := app.Run(configPath)
