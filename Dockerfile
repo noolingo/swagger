@@ -36,6 +36,7 @@ USER app
 WORKDIR /app/
 COPY --from=builder ${TARGET_DIR}/${SERVICE} ${SERVICE}
 COPY --from=builder ${TARGET_DIR}/config.yml ./configs/config.yml
+COPY --from=builder ${TARGET_DIR}/ui ui
 
 EXPOSE 8080
 ENTRYPOINT /app/${SERVICE}
