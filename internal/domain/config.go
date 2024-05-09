@@ -1,9 +1,9 @@
 package domain
 
 type Config struct {
-	App    app    `yaml:"app" env-prefix:"XPRTS_" json:"app"`
-	Listen listen `yaml:"listen" env-prefix:"XPRTS_LISTEN_" json:"listen"`
-	Log    Logger `yaml:"log" env-prefix:"XPRTS_" json:"log"`
+	App    app    `yaml:"app" env-prefix:"NOOLINGO_" json:"app"`
+	Listen listen `yaml:"listen" env-prefix:"NOOLINGO_LISTEN_" json:"listen"`
+	Log    Logger `yaml:"log" env-prefix:"NOOLINGO_" json:"log"`
 }
 
 type app struct {
