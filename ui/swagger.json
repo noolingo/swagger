@@ -218,14 +218,14 @@
         "tags": [
           "Deck"
         ],
-        "operationId": "Deck_DeckCreate",
+        "operationId": "Deck_Create",
         "parameters": [
           {
             "name": "body",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/noolingoDeckCreateRequest"
+              "$ref": "#/definitions/noolingoCreateRequest"
             }
           }
         ],
@@ -233,7 +233,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/noolingoDeckCreateResponse"
+              "$ref": "#/definitions/noolingoCreateResponse"
             }
           },
           "default": {
@@ -277,12 +277,71 @@
         }
       }
     },
+    "/decks/get/{deckId}": {
+      "get": {
+        "tags": [
+          "Deck"
+        ],
+        "operationId": "Deck_Get",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "deckId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/noolingoGetResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/decks/list": {
+      "get": {
+        "tags": [
+          "Deck"
+        ],
+        "operationId": "Deck_List",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/noolingoListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
     "/decks/{deckId}": {
       "delete": {
         "tags": [
           "Deck"
         ],
-        "operationId": "Deck_DeckDelete",
+        "operationId": "Deck_Delete",
         "parameters": [
           {
             "type": "string",
@@ -323,36 +382,6 @@
           {
             "type": "string",
             "name": "cardId",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/commonResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        }
-      }
-    },
-    "/decks/{id}": {
-      "get": {
-        "tags": [
-          "Deck"
-        ],
-        "operationId": "Deck_DeckList",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "id",
             "in": "path",
             "required": true
           }
@@ -608,7 +637,7 @@
         }
       }
     },
-    "noolingoDeckCreateRequest": {
+    "noolingoCreateRequest": {
       "type": "object",
       "properties": {
         "description": {
@@ -619,11 +648,39 @@
         }
       }
     },
-    "noolingoDeckCreateResponse": {
+    "noolingoCreateResponse": {
       "type": "object",
       "properties": {
         "deckID": {
           "type": "string"
+        },
+        "response": {
+          "$ref": "#/definitions/commonError"
+        }
+      }
+    },
+    "noolingoDeckObject": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "noolingoGetResponse": {
+      "type": "object",
+      "properties": {
+        "cardIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "response": {
           "$ref": "#/definitions/commonError"
@@ -635,6 +692,21 @@
       "properties": {
         "result": {
           "$ref": "#/definitions/noolingoUserObject"
+        }
+      }
+    },
+    "noolingoListResponse": {
+      "type": "object",
+      "properties": {
+        "decks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/noolingoDeckObject"
+          }
+        },
+        "response": {
+          "$ref": "#/definitions/commonError"
         }
       }
     },
