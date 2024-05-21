@@ -265,7 +265,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/noolingoCardAddResponse"
+              "$ref": "#/definitions/commonResponse"
             }
           },
           "default": {
@@ -600,20 +600,6 @@
         },
         "deckId": {
           "type": "string"
-        }
-      }
-    },
-    "noolingoCardAddResponse": {
-      "type": "object",
-      "properties": {
-        "cardId": {
-          "type": "string"
-        },
-        "deckId": {
-          "type": "string"
-        },
-        "response": {
-          "$ref": "#/definitions/commonError"
         }
       }
     },
